@@ -63,8 +63,8 @@ int main(int argc, char* argv[]) {
 				eth_hdr->ether_dhost[3], eth_hdr->ether_dhost[4], eth_hdr->ether_dhost[5]);
 				printf("src ip: %s\n", inet_ntoa(ipv4_hdr->ip_src));
 				printf("dst ip: %s\n", inet_ntoa(ipv4_hdr->ip_dst));
-				printf("src port: %d\n", tcp_hdr->th_sport);
-				printf("dst port: %d\n", tcp_hdr->th_dport);
+				printf("src port: %d\n", ntohs(tcp_hdr->th_sport));
+				printf("dst port: %d\n", ntohs(tcp_hdr->th_dport));
 				printf("data: ");
 				for (int i = 0; i < 20; i++) {
 					printf("%02x ", data[i]);
